@@ -32,18 +32,8 @@
         - php-tidy
         - php-pear
 
-   - name: Copy default virtual server
-     copy: src=govready/templates/etc/httpd/conf.d/govready.conf dest=/etc/httpd/conf.d/govready.conf
-     notify: restart httpd
-
-   - name: Ensure Apache running
-     service: name=httpd state=started enabled=yes
-
    - name: Install git
      yum: pkg=git state=installed
-
-   - name: Copy /srv/govready files
-     copy: src=govready/templates/srv/govready dest=/srv
 
    # - name: install composer
    #   shell: >
@@ -54,12 +44,24 @@
    #   shell: >
    #      mv /usr/local/bin/composer.phar /usr/local/bin/composer
    #   when: "useComposer == true"
+ 
+ # Install GovReady components
+ # Requires the GovReady components to be installed.
 
-  # Install project specific software
+   # - name: Copy default virtual server
+   #   copy: src=templates/etc/httpd/conf.d/10-app.conf dest=/etc/httpd/conf.d/10-app.conf
+   #   notify: restart httpd
 
-   - name: Copy default virtual server
-     copy: src=templates/etc/httpd/conf.d/10-app.conf dest=/etc/httpd/conf.d/10-app.conf
-     notify: restart httpd
+   # - name: Copy default virtual server
+   #   copy: src=govready/templates/etc/httpd/conf.d/govready.conf dest=/etc/httpd/conf.d/govready.conf
+   #   notify: restart httpd
 
+   # - name: Ensure Apache running
+   #   service: name=httpd state=started enabled=yes
+
+   # - name: Copy /srv/govready files
+   #   copy: src=govready/templates/srv/govready dest=/srv
+
+ # Install project specific software
 
 
