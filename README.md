@@ -27,9 +27,9 @@ Using a virtual machines to test software has many advantages
 * Apache
 * PHP
 * Simple Ansible playbook to install
-* * Apache
-* * PHP
-* * GovReady toolkikt (alpha)
+* Apache
+* PHP
+* GovReady toolkit (alpha)
 
 ## Links
 
